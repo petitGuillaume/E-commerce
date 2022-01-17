@@ -1,0 +1,104 @@
+body {
+  background-color: #f8f8f8;
+  color: #2a4c54;
+  height: 100%;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+html  {cursor:url(https://cdn.custom-cursor.com/128/assets/arrows/32/Yellow_Duck_Cursor.png) , auto;}
+
+
+/*Navbar*/
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    padding-top: 26.5px;
+    padding-bottom: 26.5px;
+    line-height: 27px;
+  }
+}
+
+.nav-item a {
+  color: #2a4c54 !important;
+}
+
+nav {
+  position: absolute;
+  background: #f8f8f8;
+  z-index: -1;
+}
+
+nav a:hover {
+  background-color: #7eb9be;
+}
+
+.navbar-brand {
+  transform: translate(-500%);
+}
+.navbar-right {
+  transform: translate(-50%);
+}
+
+.img-responsive {
+  position: relative;
+  height: 100%;
+  width: auto;
+}
+.iconepanierTop {
+  z-index: 1;
+}
+
+#histoireFirst {
+  margin: 2.4rem;
+}
+
+ul li {
+  text-align: center;
+}
+
+#plantInt :target {
+  padding-top: 7em;
+  margin-top: -7em;
+}
+#plantExt :target {
+  padding-top: 7em;
+  margin-top: -7em;
+}
+#bouquets :target {
+  padding-top: 7em;
+  margin-top: -7em;
+}
+
+/* Icônes panier */
+.fas {
+  color: #2a4c54;
+}
+
+a {
+  color: lightblue;
+}
+
+a:hover {
+  color: white;
+}
+
+/* Catégorie Produits */
+h1,
+h2,
+h3 {
+  color: #2a4c54;
+  /* text-shadow: 2px 2px 4px #f8f8f8; */
+}
+
+.card:hover {
+  box-shadow: 3px 3px 8px #2a4c54;
+}
+
+.card-text {
+  color: #bb5554;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.card-link {
+  color: #3a3a3a;
+}
+

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d89aa1e4ce.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/script.js" defer></script>
+    <title>Canard land : Le site de l'ami des canards</title>
+</head>
+
+<body>
+    <audio autoplay loop>
+        <source src="assets/audio/ducktales.mp3">
+    </audio>
+
+    <div class="container-fluid">
+        <section id="index"></section>
+        <div id="background"></div>
+        <!--navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="navbar-toggler-icon"></div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <div class="hover"></div>
+                    <li class="nav-item active">
+                        <a class="nav-link" id="gardenDuckNav" href="#all-products">Canard de Jardin</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" id="bathDuckNav" href="#all-products">Canard de bain</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" id="tableDuckNav" href="#all-products">Canard de table</a>
+                    </li>
+
+                </ul>
+            </div>
+            <a href="#panier">
+                <span type="badge-pill" class="panier" data-toggle="modal" data-target="#cartModal" id="displayCart">
+                    <i class="fas fa-shopping-cart fa-lg"></i>
+                </span>
+            </a>
+        </nav>
+
+        <!-- Modale Panier -->
+        <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content background-modal">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h3 class="text-center">Récapitulatif du panier</h3>
+                        <table class="table table-responsive table-hover" id="cartTable">
+                            <thead>
+                                <tr>
+                                    <th scope="col" width="200" class="text-left">Nom du produit</th>
+                                    <th scope="col" width="200" class="text-left">Référence article</th>
+                                    <th scope="col" width="200" class="text-left">Prix unitaire</th>
+                                    <th scope="col" width="200" class="text-center">Quantité</th>
+                                    <th scope="col" width="200" class="text-center">Total</th>
+                                    <th scope="col" width="200" class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cartTableBody">
+                            </tbody>
+                        </table>
+                        <div class="text-right font-weight-bold">Total TTC : <span id="result"></span></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info">Passer ma commande</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Catégorie Produits -->
+        <div class="products" id="all-products">
+            <div class="row justify-content-center" id="prod">
+                <h1 class="col-sm text-center mt-5 mb-4">Bienvenue sur le site des amis des canard</h1>
+            </div>
+            <!-- Sous-Catégorie canard de jardin -->
+            <section id="gardenDuck">
+                <div class="row justify-content-center">
+                    <h2 class="col-sm text-center my-5">Les canard de Jardin</h2>
+                </div>
+                <div class="row justify-content-center" id="duckPower">
+                    <div class="col-sm-2">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h3 class="card-title text-center">Canard Colvert</h3>
+                                <img class="card-img-top btn" src="assets/img/Duck1.jpg" alt="Canard Colvert"
+                                    type="button" data-toggle="modal" data-target="#colvertModal">
+                                <div class="row">
+                                    <div class="col text-left mt-3">
+                                        <span class="card-text">16 €</span>
+                                    </div>
+                                    <div class="col text-right mt-3">
+                                        <a href="" class="card-link article" data-ref="ref. 123" data-name="Canard Colvert"
+                                            data-price="16">
+                                            <i class="fas fa-cart-plus fa-lg"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h3 class="card-title text-center">Canard blanc</h3>
+                                <img class="card-img-top btn" src="assets/img/Duck2.jpg"
+                                    alt="Canard blanc" type="button" data-toggle="modal"
+                                    data-target="#blancModal">
+                                <div class="row">
+                                    <div class="col text-left mt-3">
+                                        <span class="card-text">41.00 €</span>
+                                    </div>
+                                    <div class="col text-right mt-3">
+                                        <a href="#" class="card-link article" data-ref="ref. 456" data-name="Canard blanc"
+                                            data-price="41.0">
+                                            <i class="fas fa-cart-plus fa-lg"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h3 class="card-title text-center">Canard Mandarin</h3>
+                                <img class="card-img-top btn" src="assets/img/duck3.jpg"
+                                    alt="Canard Mandarin" type="button" data-toggle="modal"
+                                    data-target="#mandarinModal">
+                                <div class="row">
+                                    <div class="col text-left mt-3">
+                                        <span class="card-text">55 €</span>
+                                    </div>
+                                    <div class="col text-right mt-3">
+                                        <a href="#" class="card-link article" data-ref="ref. 789" data-name="Canard Mandarin"
+                                            data-price="55">
+                                            <i class="fas fa-cart-plus fa-lg"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Sous-Catégorie Canard de Bain -->
+            <section id="bathDuck">
+                <div class="row justify-content-center">
+                    <h2 class="col-sm text-center my-5">Canard de Bain</h2>
+                </div>
+                <div class="row justify-content-center" id="duckPower">
+                    <div class="col-sm-2">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h3 class="card-title text-center">Canard Médical</h3>
+                                <img class="card-img-top btn" src="assets/img/Mecine_duck.jpg"
+                                    alt="canard-médecin" type="button" data-toggle="modal"
+                                    data-target="#medecineModal">
+                                <div class="row">
+                                    <div class="col text-left mt-3">
+                                        <span class="card-text">8.95 €</span>
+                                    </div>
+                                    <div class="col text-right mt-3">
+                                        <a href="" class="card-link article" data-ref="ref. 345" data-name="Canard Médical"
+                                            data-price="8.95">
+                                            <i class="fas fa-cart-plus fa-lg"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h3 class="card-title text-center">Canard Parisien</h3>
+                                <img class="card-img-top btn" src="assets/img/Parisin-duck.jpg"
+                                    alt="Parisien Canard" type="button" data-toggle="modal"
+                                    data-target="#parisienModal">
+                                <div class="row">
+                                    <div class="col text-left mt-3">
+                                        <span class="card-text">12.95 €</span>
+                                    </div>
+                                    <div class="col text-right mt-3">
+                                        <a href="#" class="card-link article" data-ref="ref. 678"
+                                            data-name="Canard Parisien" data-price="12.95">
+                                            <i class="fas fa-cart-plus fa-lg"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h3 class="card-title text-center">Canard Viking</h3>
+                                <img class="card-img-top btn" src="assets/img/Viking_duck.jpg"
+                                    alt="Canard Viking" type="button" data-toggle="modal"
+                                    data-target="#vikingModal">
+                                <div class="row">
+                                    <div class="col text-left mt-3">
+                                        <span class="card-text">14.99 €</span>
+                                    </div>
+                                    <div class="col text-right mt-3">
+                                        <a href="#" class="card-link article" data-ref="ref. 901" data-name="Canard Viking"
+                                            data-price="14.99">
+                                            <i class="fas fa-cart-plus fa-lg"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sous-Catégorie Canard de Table -->
+            <section id="tableDuck">
+                <div class="row justify-content-center">
+                    <h2 class="col-sm text-center my-5">Canard de Table</h2>
+                </div>
+                <div class="row justify-content-center" id="duckPower">
+                    <div class="col-sm-2">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h3 class="card-title text-center">Confit de Canard carrefour</h3>
+                                <img class="card-img-top btn" src="assets/img/duck_boite1.jpg"
+                                    alt="Confit de Canard carfour" type="button" data-toggle="modal"
+                                    data-target="#carrefourModal">
+                                <div class="row">
+                                    <div class="col text-left mt-3">
+                                        <span class="card-text">9.40 €</span>
+                                    </div>
+                                    <div class="col text-right mt-3">
+                                        <a href="" class="card-link article" data-ref="ref. 2567" data-name="Confit de Canard carrefou"
+                                            data-price="9.4">
+                                            <i class="fas fa-cart-plus fa-lg"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h3 class="card-title text-center">Confit de Canard Delpeyrat</h3>
+                                <img class="card-img-top btn" src="assets/img/duck_boite2.jpg"
+                                    alt="Confit de Canard Delpeyrat" type="button" data-toggle="modal"
+                                    data-target="#delpeyratModal">
+                                <div class="row">
+                                    <div class="col text-left mt-3">
+                                        <span class="card-text">13.40 €</span>
+                                    </div>
+                                    <div class="col text-right mt-3">
+                                        <a href="#" class="card-link article" data-ref="ref. 2890" data-name="Confit de Canard Delpeyrat"
+                                            data-price="13.40">
+                                            <i class="fas fa-cart-plus fa-lg"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h3 class="card-title text-center">Confit de canard Larnaudit</h3>
+                                <img class="card-img-top btn" src="assets/img/duck_boite3.jpg" alt="Confit de canard Larnaudit"
+                                    type="button" data-toggle="modal" data-target="#larnauditModal">
+                                <div class="row">
+                                    <div class="col text-left mt-3">
+                                        <span class="card-text">16.45 €</span>
+                                    </div>
+                                    <div class="col text-right mt-3">
+                                        <a href="#" class="card-link article" data-ref="ref. 3123" data-name="Confit de canard Larnaudit"
+                                            data-price="16.45">
+                                            <i class="fas fa-cart-plus fa-lg"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Fenêtre modale de description produit -->
+    <div class="modal fade" id="colvertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Description du produit</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Canard colvert, col-vert (Anas platyrhynchos), ou Canard mallard au Canada, est une espèce d'oiseaux de l'ordre des Ansériformes, de la famille des Anatidés et de la sous-famille des Anatinés. C'est certainement le plus connu et reconnaissable de tous les canards, du fait de l'existence de races de canards domestiques issues de cette espèce.</p> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="blancModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Description du produit</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Le blanc de l'Allier est un grand canard précoce au dos long pouvant dépasser les 4 kg pour le mâle et les 3,5 kg pour la cane. Sélectionné pour sa viande par sa grande aptitude à l'engraissement, il est très rustique, massif et trapu. Sa quille (jabot descendu) est marquée1. Son port est plus horizontal que l'Aylesbury et il est d'allure vive et dégagée. Son plumage doit être d'un blanc sans taches ni reflets jaunes2 ou safranés. Son bec est blanc rosé et ne doit avoir ni marques de jaune, ni marques de noir. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mandarinModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Description du produit</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                   <p>Reconnaissable entre tous, le mâle se distingue par la forme et la couleur si particulière de ses ailes. Il perd ce plumage resplendissant après la période de reproduction (vers la fin du printemps), pour prendre une apparence plus proche de la femelle, à tel point qu'il peut être difficile de les différencier.
+
+                    Cet oiseau mesure entre 41 et 50 centimètres de longueur pour une envergure allant de 65 à 75 centimètres. Le mâle pèse dans les 630 grammes et la femelle 570 grammes. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="medecineModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Description du produit</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                   <p>Il a eu son diplome par corespondance</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="parisienModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Description du produit</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Si vous êtes parisien vous avez le droit de vous sentire insulté</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="vikingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Description du produit</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p> RAGNAROEK'N ROLL!!! N'esperez pas aller au valhalla sans lui</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="carrefourModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Description du produit</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Si on ferme les yeux, ça ressemble presque à de la nouriture</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="delpeyratModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Description du produit</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>La pire chose qu'il puisse arrivé a un canard</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="larnauditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Description du produit</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Voila un canard qui courait pas assez vite</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
